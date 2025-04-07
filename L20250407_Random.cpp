@@ -8,18 +8,15 @@ int main()
 {
 	bool IsComplete = false;
 	int idx = 0;
-	int MaxCount = 52;
-	int Balls[52] = { 0, };
+	int MaxCount = 10000;
+	int Balls[10000] = { 0, };
 
 	srand(time(NULL));
-	//time_t StartTime = time(NULL);
+
+	time_t StartTime = time(NULL);
+
 	while (!IsComplete)
 	{
-		if (idx >= MaxCount)
-		{
-			break;
-		}
-
 		int Num = rand()%MaxCount + 1;
 		bool Duplecate = false;
 
@@ -31,19 +28,25 @@ int main()
 				break;
 			}
 		}
+
 		if (!Duplecate)
 		{
 			Balls[idx] = Num;
 			idx++;
+
+			if (idx >= MaxCount)
+			{
+				IsComplete = true;
+			}
 		}
 	}
-	//time_t EndTime = time(NULL);
-	//double DebugTime = (double)(EndTime - StartTime);
-	//printf("DebugTime : %f\n", DebugTime);
-	printf("Boal Number : ");
+	time_t EndTime = time(NULL);
+	double DebugTime = (double)(EndTime - StartTime);
+	printf("DebugTime : %f\n", DebugTime);
+	/*printf("Boal Number : ");
 	for (int i : Balls)
 	{
 		printf("%d, ", i);
-	}
-
+	}*/
+	return 0;
 }
