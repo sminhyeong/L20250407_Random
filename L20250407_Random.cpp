@@ -9,10 +9,10 @@ int main()
 	bool IsComplete = false;
 	int idx = 0;
 	int MaxCount = 52;
-	int Boals[52] = { 0, };
+	int Balls[52] = { 0, };
 
 	srand(time(NULL));
-	
+	//time_t StartTime = time(NULL);
 	while (!IsComplete)
 	{
 		if (idx >= MaxCount)
@@ -25,7 +25,7 @@ int main()
 
 		for (int i = 0; i < idx+1; i++)
 		{
-			if (Num == Boals[i])
+			if (Num == Balls[i])
 			{
 				Duplecate = true;
 				break;
@@ -33,12 +33,15 @@ int main()
 		}
 		if (!Duplecate)
 		{
-			Boals[idx] = Num;
+			Balls[idx] = Num;
 			idx++;
 		}
 	}
+	//time_t EndTime = time(NULL);
+	//double DebugTime = (double)(EndTime - StartTime);
+	//printf("DebugTime : %f\n", DebugTime);
 	printf("Boal Number : ");
-	for (int i : Boals)
+	for (int i : Balls)
 	{
 		printf("%d, ", i);
 	}
